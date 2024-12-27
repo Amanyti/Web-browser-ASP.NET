@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- PERMITE REDEFINIR OS ELEMENTOS DE ACORDO COM A LARGURA DA TELA DO DISPOSITIVO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- EXIBE O ICONE NA ABA DO NAVEGADOR -->
+    <link rel="shortcut icon" type="imagex/png" href="./images/icon1.png">
+
+    <title>Navegação Web</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Css/Projeto.css" rel="stylesheet" />
+    <link href="Css/StyleSheet.css" rel="stylesheet" />
+    <!-- para exibir slide -->
+    <link href="Javascript/flexslider.css" rel="stylesheet" />
+    <script src="Javascript/jquery-1.7.2.min.js"></script>
+    <script src="Javascript/flexslider.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div class="barra-fixa">
+            <!-- CABEÇALHO -->
+            <div class="cabecalho">
+                <div class="content-wrap">
+                    <!-- logomarca -->
+                    <div class="logomarca">
+                        <img src="../Images/logonova.png" />
+                    </div>
+                    <!-- barra título -->
+                    <div class="barra-titulo">
+                        <h2>Navegadores Web</h2>
+                    </div>
+
+                    <!-- barra menu -->
+                    <div class="barra-menu">
+                        <a href="../Default.aspx">Home</a>
+                        <a href="../Admin/CadastroUsuario.aspx">Cadastro de Usuario</a>
+                        <a href="../FaleConosco.aspx">Fale Conosco</a>
+                        <a href="../Admin/ExibirUsuarios.aspx">Exibir Usuarios</a>
+                        <a href="../ConsultaCEP.aspx">Consultar CEP</a>
+                        <asp:LinkButton ID="Logout" OnClick="Logout_Click" runat="server">Sair</asp:LinkButton>
+
+                    </div>
+
+
+                    <!-- MENU MOBILE -->
+                    <asp:Panel CssClass="menu-mobile" runat="server" ScrollBars="Auto" ID="PanelMenuMobile">
+
+                        <!-- BOTÃO CLOSE 
+                        <div class="menu-mobile-close">
+                            <i onclick="viewMenu()">X</i>
+                        </div>-->
+                        <!-- ITENS DO MENU -->
+                    </asp:Panel>
+                </div>
+            </div>
+        </div>
+        <!-- CONTEÚDO -->
+        <div class="conteudo content-wrap">
+            <asp:ContentPlaceHolder ID="Conteudo" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- RODAPÉ -->
+        <div class="rodape">
+            <div class="content-wrap padding-14">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="box2 border-right padding-14">
+                            <h2>ADS</h2>
+                            Analise e Desenvolvimento de Sistemas<br />
+                            Faculdade de Tecnoligia
+              <br />
+                            FATEC AMERICANA
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box2 border-right padding-14">
+                            A linguagem C# é uma linguagem de programação de alto nível, multiparadigma e de tipagem forte, desenvolvida pela Microsoft. É a linguagem principal da plataforma .NET e é utilizada para criar aplicativos para Windows, para a web e muito mais.
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box2 border-right padding-14">
+                            <h3>Menu</h3>
+                            <a href="Default.aspx">HOME</a><br />
+
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box2 text-align-right padding-14 ">
+                            <img src="../Images/marca2.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        // MENU RESPONSIVO
+        function viewMenu() {
+            var objDown = document.getElementById("MenuMobileDown");
+            var objMenu = document.getElementById("ctl00_PanelMenuMobile");
+            var disp = window.getComputedStyle(objMenu).display;
+            if (disp === "none") {
+                objDown.style.display = "block";
+                objMenu.style.display = "block";
+            } else {
+                objDown.style.display = "none";
+                objMenu.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
